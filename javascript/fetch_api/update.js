@@ -5,8 +5,8 @@ document.querySelector('.updateForm').addEventListener('submit', async (e) => {
     let task_description = document.getElementById('edit_task_description').value;
 
     const formData = new FormData(e.target);
-    formData.append('tasks_id', task_id);
-    formData.append('tasks_description', task_description);
+    formData.append('id_tasks', task_id);
+    formData.append('description', task_description);
 
     const response = await fetch('/phpTodolist/view/traitementForm/updateTask.php', {
         method: 'POST',

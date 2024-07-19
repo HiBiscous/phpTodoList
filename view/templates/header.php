@@ -7,7 +7,7 @@
             <li class="li-title">
                 <h1>Ma ToDo List</h1>
             </li>
-            <li><a href="../dashboard/index.php" class="btn-account">Mon compte</a></li>
+            <li><a href="../users/index.php" class="btn-account">Mon compte</a></li>
             <li><a href="../traitementForm/logout.php" class="btn-logout">Deconnexion</a></li>
         </ul>
     </nav>

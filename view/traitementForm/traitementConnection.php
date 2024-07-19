@@ -18,7 +18,7 @@ if (isset($_POST['login']) && isset($_POST['passwd'])) {
     $arr = $stmt->fetch();
 
     if ($arr) {
-        $_SESSION['users_id'] = $arr['users_id'];
+        $_SESSION['userId'] = $arr['userId'];
         $response['message'] = 'Bravo vous etes connecte';
         $response['success'] = true;
     } else {

@@ -1,7 +1,7 @@
 <?php
 require_once '../../model/db_connect.php';
 
-$rqt = 'SELECT tasks_description, tasks_id FROM tasks ORDER BY tasks_id DESC LIMIT 5';
+$rqt = 'SELECT description, id_tasks FROM tasks ORDER BY id_tasks DESC LIMIT 5';
 $stmt = $pdo->prepare($rqt);
 $stmt->execute();
 $arr = $stmt->fetchAll();
@@ -21,7 +21,7 @@ $arr = $stmt->fetchAll();
     <?php require_once '../templates/header.php' ?>
 
     <form action="../traitementForm/createTask.php" method="POST" class="add-note-form" id="taskForm">
-        <input type="text" id="tasks_description" name="tasks_description" placeholder="Nouvelle tâche" required>
+        <input type="text" id="description" name="description" placeholder="Nouvelle tâche" required>
         <button type="submit" class="btn btn-add">Ajouter</button>
     </form>
     <h3 class="title todo-content">TO DO</h3>
@@ -30,16 +30,16 @@ $arr = $stmt->fetchAll();
         <?php
         if ($stmt) {
             foreach ($arr as $value) { ?>
-                <tr class="table-tr" id="task_<?php echo $value['tasks_id'] ?>">
+                <tr class="table-tr" id="task_<?php echo $value['id_tasks'] ?>">
                     <td class="table-td">
-                        <?php echo htmlspecialchars($value['tasks_description']) ?>
+                        <?php echo htmlspecialchars($value['description']) ?>
                     </td>
                     <td class="table-td table-td-width">
-                        <button class="btn btn-edit" onclick="popup_open(<?php echo $value['tasks_id'] ?>, '<?php echo htmlspecialchars($value['tasks_description']) ?>')">EDIT</button>
+                        <button class="btn btn-edit" onclick="popup_open(<?php echo $value['id_tasks'] ?>, '<?php echo htmlspecialchars($value['description']) ?>')">EDIT</button>
                     </td>
                     <td class="table-td table-td-width">
                         <form action="/phpTodolist/view/traitementForm/deleteTask.php" method="POST">
-                            <input type="hidden" name="tasks_id" value="<?php echo $value['tasks_id']; ?>">
+                            <input type="hidden" name="id_tasks" value="<?php echo $value['id_tasks']; ?>">
                             <button class="btn btn-delete" type="submit" name="delete" value="Delete">DELETE</button>
                         </form>
                 </tr>

@@ -7,14 +7,14 @@ $response = [
     'success' => false
 ];
 
-if (isset($_POST['tasks_description']) && isset($_POST['tasks_id'])) {
-    $tasks_description = $_POST['tasks_description'];
-    $tasks_id = $_POST['tasks_id'];
+if (isset($_POST['description']) && isset($_POST['id_tasks'])) {
+    $description = $_POST['description'];
+    $id_tasks = $_POST['id_tasks'];
 
-    $rqt = 'UPDATE tasks SET tasks_description = :tasks_description WHERE tasks_id = :tasks_id';
+    $rqt = 'UPDATE tasks SET description = :description WHERE id_tasks = :id_tasks';
     $stmt = $pdo->prepare($rqt);
-    $stmt->bindParam(':tasks_description', $tasks_description);
-    $stmt->bindParam(':tasks_id', $tasks_id);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':id_tasks', $id_tasks);
 
     if ($stmt->execute()) {
         $response['success'] = true;
@@ -26,7 +26,7 @@ if (isset($_POST['tasks_description']) && isset($_POST['tasks_id'])) {
     $response['message'] = 'Une erreur s\'est produite';
 }
 
-$query = "SELECT tasks_description FROM tasks";
+$query = "SELECT description FROM tasks";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
 $arr = $stmt->fetchAll();

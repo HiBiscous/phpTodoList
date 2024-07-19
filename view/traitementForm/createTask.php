@@ -1,18 +1,18 @@
 <?php
 session_start();
-if (!isset($_SESSION['users_id'])) {
+if (!isset($_SESSION['userID'])) {
     header('Location: connection.php');
     exit;
 }
-echo $_SESSION['users_id'];
+echo $_SESSION['userID'];
 require_once '../../model/db_connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tasks_description'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'])) {
 
-    $tasks_description = $_POST['tasks_description'];
-    $rqt = 'INSERT INTO tasks(tasks_description) VALUES (:tasks_description) ';
+    $description = $_POST['description'];
+    $rqt = 'INSERT INTO tasks(description) VALUES (:description) ';
     $stmt = $pdo->prepare($rqt);
-    $stmt->bindParam(':tasks_description', $tasks_description);
+    $stmt->bindParam(':description', $description);
     $stmt->execute();
 
 

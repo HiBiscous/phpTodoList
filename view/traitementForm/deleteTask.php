@@ -2,12 +2,12 @@
 session_start();
 require_once '../../model/db_connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tasks_id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tasks'])) {
 
-    $tasks_id = $_POST['tasks_id'];
-    $rqt = 'DELETE FROM tasks WHERE tasks_id = :tasks_id ';
+    $id_tasks = $_POST['id_tasks'];
+    $rqt = 'DELETE FROM tasks WHERE id_tasks = :id_tasks ';
     $stmt = $pdo->prepare($rqt);
-    $stmt->bindParam(':tasks_id', $tasks_id);
+    $stmt->bindParam(':id_tasks', $id_tasks);
     $stmt->execute();
 
 

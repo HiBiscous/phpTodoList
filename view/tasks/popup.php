@@ -6,7 +6,7 @@
     <form action="../traitementForm/updateTask.php" class="edit-note-content updateForm">
         <div class="popup-flex">
             <input type="hidden" id="edit_task_id">
-            <input type="text" id="edit_task_description" name="tasks_description" class="input-container">
+            <input type="text" id="edit_task_description" name="description" class="input-container">
             <!--<button type="button" class="btn btn-submit" onclick="submitNewTask()">Enregistrer</button>-->
             <input type="submit" value="Valider" class="btn">
         </div>

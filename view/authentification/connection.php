@@ -39,6 +39,7 @@
             </div>
         </section>
     </main>
+
     <script src="../../javascript/alert.js"></script>
     <script src="../../javascript/fetch_api/connect.js"></script>
 
