@@ -8,6 +8,12 @@
     background-color: var(--header);
 }
 
+.add-note-form {
+    display: flex;
+    margin: 1em 1em;
+    /* justify-content: space-between; */
+}
+
 .btn:hover,
 .link:hover {
     background-color: #021659;

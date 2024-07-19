@@ -41,6 +41,7 @@
     </main>
     <script src="../../javascript/main.js"></script>
     <script src="../../javascript/alert.js"></script>
+    <script src="../../javascript/fetch_api/connect.js"></script>
 
 
 </body>

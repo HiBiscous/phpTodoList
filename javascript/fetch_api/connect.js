@@ -13,7 +13,7 @@ document.querySelector('.connectForm').addEventListener('submit', async (e) => {
         const jsonResponse = await response.json();
         // return jsonResponse;
         if (jsonResponse.success) {
-            console.error(jsonResponse.success);
+            console.error(jsonResponse);
             // alert(jsonResponse.message)
             // setTimeout(() => {
             window.location = '/phpTodolist/view/tasks/note.php';

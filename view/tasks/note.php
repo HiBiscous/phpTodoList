@@ -35,7 +35,7 @@ $arr = $stmt->fetchAll();
                         <?php echo htmlspecialchars($value['tasks_description']) ?>
                     </td>
                     <td class="table-td table-td-width">
-                        <button class="btn btn-edit" onclick="popup_edit(<?php echo $value['tasks_id'] ?>, '<?php echo htmlspecialchars($value['tasks_description']) ?>')">EDIT</button>
+                        <button class="btn btn-edit" onclick="popup_open(<?php echo $value['tasks_id'] ?>, '<?php echo htmlspecialchars($value['tasks_description']) ?>')">EDIT</button>
                     </td>
                     <td class="table-td table-td-width">
                         <form action="/phpTodolist/view/traitementForm/deleteTask.php" method="POST">
@@ -54,7 +54,7 @@ $arr = $stmt->fetchAll();
     require_once 'popup.php';
     ?>
 
-    <script src="../../javascript/main.js"></script>
+    <script src="../../javascript/popup.js"></script>
     <script src="../../javascript/fetch_api/update.js"></script>
 </body>
 

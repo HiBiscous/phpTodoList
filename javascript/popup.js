@@ -1,4 +1,4 @@
-console.log('main.js');
+console.log('POPUP.js');
 /**
  * this function rescue the notes value when the button is clicked
  * the note is display in a popup div
@@ -6,17 +6,17 @@ console.log('main.js');
  * @param {string} task_id 
  * @param {string} task_description 
  */
-function popup_edit(task_id, task_description) {
+function popup_open(task_id, task_description) {
   document.getElementById('edit_task_id').value = task_id;
   document.getElementById('edit_task_description').value = task_description;
-  document.getElementById('popup_edit').style.display = 'block';
+  document.getElementById('popup_div').style.display = 'block';
 };
 
 /**
  * This function close the popup form
  */
 function popup_close() {
-  document.getElementById('popup_edit').style.display = 'none';
+  document.getElementById('popup_div').style.display = 'none';
 }
 
 /**
