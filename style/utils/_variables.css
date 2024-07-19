@@ -1,0 +1,11 @@
+:root {
+    --header: rgb(84, 3, 3);
+    --yellow: #b4a23f;
+    --green: #85C17B;
+    --red: #d20303;
+    --white: #fff;
+    --border-radius: 50px;
+    --border: 1px solid black;
+    --font-color: rgb(84, 3, 3);
+
+}

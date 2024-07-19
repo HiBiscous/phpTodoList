@@ -1,0 +1,19 @@
+.alert {
+    display: flex;
+    margin: 1em auto;
+    padding: 1em 1em;
+    width: fit-content;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--header);
+    border-radius: var(--border-radius);
+}
+
+.hide {
+    display: none;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-bottom: 1em;
+}

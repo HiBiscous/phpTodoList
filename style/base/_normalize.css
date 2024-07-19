@@ -1,0 +1,17 @@
+* {
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-image: url(../../media/bg-image.jpg); */
+    background-repeat: no-repeat;
+    color: var(--font-color);
+    padding: 2em;
+}
+
+.btn-logout {
+    background-color: none;
+}

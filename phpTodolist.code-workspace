@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../formulaireSecure"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "phpTodolist"
+	}
+}

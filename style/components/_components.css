@@ -1,0 +1,75 @@
+.link,
+.btn {
+    color: var(--white);
+    text-decoration: none;
+    padding: 1em 2em;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    background-color: var(--header);
+}
+
+.btn:hover,
+.link:hover {
+    background-color: #021659;
+}
+
+.input-container {
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    padding: 1em;
+    margin-left: auto;
+    width: 100%;
+    background-color: white;
+}
+
+.section-form {
+    width: 80vh;
+    margin: auto;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    padding: 1em;
+}
+
+.content-h1 {
+    text-align: center;
+    color: var(--font-color);
+}
+
+.form {
+    margin: 2em 0 3em;
+}
+
+.glass {
+    padding: 2em;
+    border: var(--border);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.label-container {
+    margin-right: 1em;
+}
+
+.div-input {
+    display: flex;
+    align-items: center;
+}
+
+.btn-submit {
+    background-color: var(--header);
+    text-align: center;
+}
+
+
+.btn-close {
+    background-color: var(--red);
+}
+
+.btn-save {
+    background-color: var(--green);
+}

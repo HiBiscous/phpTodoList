@@ -1,0 +1,52 @@
+header {
+    border-bottom: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    border-bottom: var(--border);
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+li {
+    padding: 0 20px;
+}
+
+.li-title {
+    margin-right: auto;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    /* font-weight: 700px; */
+    font-style: oblique;
+    font-size: 50px;
+}
+
+a,
+li:nth-last-child(-n+2) {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+li:nth-last-child(-n+2):hover a {
+    color: white;
+    background-color: var(--header);
+}
+
+.btn-account,
+.btn-logout {
+    padding: 1em;
+    border-radius: var(--border-radius);
+}
