@@ -18,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
 
-        if ($stmt->execute()) {
+        if ($stmt->fetch()) {
+            $response['message'] = 'Désolé ce login est déjà utilisé';
+        } else {
             $rqt = 'INSERT INTO users VALUES(DEFAULT, :login, :passwd)';
             $stmt = $pdo->prepare($rqt);
             $stmt->execute(
@@ -27,12 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'passwd' => password_hash($passwd, PASSWORD_DEFAULT)
                 )
             );
-            if ($stmt->execute()) {
-                $response['message'] = 'Bravo vous avez cree votre compte';
-                $response['success'] = true;
-                header('Content-Type: application/json');
-                echo json_encode($response);
-            }
+            $response['message'] = 'Bravo vous avez cree votre compte';
+            $response['success'] = true;
+            header('Content-Type: application/json');
+            echo json_encode($response);
         }
     }
 }

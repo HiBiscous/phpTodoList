@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['id_users'])) {
+    header('Location: /phptodolist/view/authentification/connection.php');
+    exit();
+}
+
 require_once '../../model/db_connect.php';
 
 $response = [

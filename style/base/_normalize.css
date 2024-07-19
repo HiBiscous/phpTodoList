@@ -11,7 +11,3 @@ body {
     color: var(--font-color);
     padding: 2em;
 }
-
-.btn-logout {
-    background-color: none;
-}

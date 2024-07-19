@@ -3,7 +3,6 @@
     margin-right: 1em;
     padding: 1em;
     height: 2em;
-    width: 90%;
     border-color: rgb(182, 179, 179);
     border-radius: var(--border-radius);
     background-color: #eae8e8;
@@ -12,7 +11,14 @@
 .add-note-form {
     display: flex;
     margin: 1em 1em;
-    /* justify-content: space-between; */
+}
+
+.title-input {
+    width: 20em;
+}
+
+.description-input {
+    width: 100em;
 }
 
 .table {
