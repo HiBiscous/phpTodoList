@@ -12,8 +12,8 @@ if (isset($_POST['login']) && isset($_POST['passwd'])) {
     $login = $_POST['login'];
     $passwd = $_POST['passwd'];
 
-    $sql = "SELECT * FROM users WHERE login = :login";
-    $stmt = $pdo->prepare($sql);
+    $rqt = "SELECT * FROM users WHERE login = :login";
+    $stmt = $pdo->prepare($rqt);
     $stmt->execute([':login' => $login]);
     $arr = $stmt->fetch();
 

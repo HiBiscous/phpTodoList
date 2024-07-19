@@ -21,7 +21,7 @@
                     </div>
                     <div class="div-link">
                         <a href="view/authentification/connection.php" class="link">Je me connecte</a>
-                        <a href="view/createCompte.php" class="link">Je n'ai pas de compte</a>
+                        <a href="view/authentification/createCompte.php" class="link">Je n'ai pas de compte</a>
                     </div>
                 </div>
             </section>

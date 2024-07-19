@@ -1,5 +1,3 @@
-<div class="popup-background glass"></div>
-
 <div id="popup_div">
     <div class="popup-flex">
         <h2 class="popup-title">Modifier la tâche</h2>
