@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-//
 $rqt = 'SELECT title, id_tasks FROM tasks WHERE userId = :userId ';
 
 $stmt = $pdo->prepare($rqt);
@@ -89,7 +88,7 @@ $arr = $stmt->fetchAll();
                     </td>
 
                     <td class="table-td table-td-width">
-                        <a href="/phpTodolist/view/tasks/displayTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="link" value="">EDIT</a>
+                        <a href="/phpTodolist/view/tasks/displayTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="link btn-edit" value="">EDIT</a>
                         <!--<button class="btn btn-edit" onclick="popup_open(<?= $value['id_tasks'] ?>, '<?= htmlspecialchars($value['title']) ?>')">EDIT</button>-->
                     </td>
                     <td class="table-td table-td-width">
@@ -111,8 +110,6 @@ $arr = $stmt->fetchAll();
 
     <script src="../../javascript/popup.js"></script>
     <script src="../../javascript/addNote.js"></script>
-
-    <!-- <script src="../../javascript/fetch_api/update.js"></script> -->
 </body>
 
 </html>

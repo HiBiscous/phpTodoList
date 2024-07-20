@@ -2,7 +2,6 @@ console.log('ADD NOTE.js');
 const button = document.querySelector('.btn-add');
 const form = document.querySelector('.add-note-form');
 
-
 button.addEventListener("click", () => {
     form.classList.remove('hidden');
     form.classList.add('show');

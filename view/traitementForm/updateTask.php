@@ -7,11 +7,6 @@ if (!isset($_SESSION['id_users'])) {
 
 require_once '../../model/db_connect.php';
 
-$response = [
-    'message' => '',
-    'success' => false
-];
-
 if (isset($_POST['description']) && isset($_POST['id_tasks'])) {
     $description = $_POST['description'];
     $id_tasks = $_POST['id_tasks'];
@@ -21,14 +16,7 @@ if (isset($_POST['description']) && isset($_POST['id_tasks'])) {
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':id_tasks', $id_tasks);
 
-    if ($stmt->execute()) {
-        $response['success'] = true;
-        $response['message'] = 'la mise a jour a ete faites';
-    } else {
-        $response['message'] = ' Redirection en cours ';
-    }
-} else {
-    $response['message'] = 'Une erreur s\'est produite';
+    $stmt->execute();
 }
 
 $query = "SELECT description FROM tasks";

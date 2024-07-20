@@ -13,7 +13,7 @@ $stmt = $pdo->prepare($rqt);
 $stmt->bindParam(':id_tasks', $id_tasks);
 $stmt->execute();
 $arr = $stmt->fetchAll();
-// var_dump($arr);
+
 
 
 ?>
@@ -24,15 +24,14 @@ $arr = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/main.css">
-    <title>ToDo List</title>
+    <title>ToDo List | note</title>
 </head>
 
 <body>
-
     <?php
     require_once '../templates/header.php';
     ?>
-    <table class="table">
+    <div class="table">
         <?php
 
         if ($stmt) {
@@ -46,14 +45,14 @@ $arr = $stmt->fetchAll();
                     }
                     ?>
                 </ul>
+
         <?php
             }
         }
         ?>
-        <button class="btn btn-edit" onclick="popup_open(<?= $value['id_tasks'] ?>, '<?= htmlspecialchars($value['description']) ?>')">MODIFIER</button>
-    </table>
-
-    <?php require_once ' /phptodolist/view/tasks/popup.php ' ?>
+    </div>
+    <br>
+    <a href="/phpTodolist/view/tasks/updateTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="btn btn-edit">Modifier</a>
 </body>
 
 </html>

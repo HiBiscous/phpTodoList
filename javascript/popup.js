@@ -6,9 +6,11 @@ console.log('POPUP.js');
  * @param {string} task_id 
  * @param {string} task_description 
  */
-function popup_open(task_id, task_description) {
-  document.getElementById('edit_task_id').value = task_id;
-  document.getElementById('edit_task_description').value = task_description;
+function popup_open(task_id) {
+  const task = tasks.find(task => task.id_tasks == task_id);
+  document.getElementById('id_tasks').value = task.id_tasks;
+  document.getElementById('edit_task_title').value = task.title;
+  document.getElementById('edit_task_description').value = task.description;
   document.getElementById('popup_div').style.display = 'block';
 };
 
