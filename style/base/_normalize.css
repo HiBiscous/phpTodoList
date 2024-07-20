@@ -11,3 +11,12 @@ body {
     color: var(--font-color);
     padding: 2em;
 }
+
+a,
+button {
+    padding: none;
+    margin: none;
+    text-decoration: none;
+    border: none;
+    background-color: none;
+}

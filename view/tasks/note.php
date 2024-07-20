@@ -65,13 +65,18 @@ $arr = $stmt->fetchAll();
 <body>
     <?php require_once '../templates/header.php' ?>
 
-    <form action="#" method="POST" class="add-note-form" id="taskForm">
-        <input type="text" id="title" class="title-input" name="title" placeholder="Titre de la tâche" required>
-        <input type="text" id="description" class="description-input" name="description" placeholder="Description de la tâche" required>
-
-        <button type="submit" class="btn btn-add">Ajouter</button>
+    <form action="#" method="POST" class="add-note-form hidden" id="taskForm">
+        <div class="form-group">
+            <label for="title">Titre :</label>
+            <input type="text" id="title" class="title-input" name="title" placeholder="Titre de la tâche" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <textarea type="text" id="description" class="description-input" name="description" placeholder="Description de la tâche" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Ajouter</button>
     </form>
-    <h3 class="title todo-content">TO DO</h3>
+    <h3 class="title todo-content">Mes Notes</h3>
 
     <table class="table">
         <?php
@@ -80,10 +85,11 @@ $arr = $stmt->fetchAll();
             foreach ($arr as $value) { ?>
                 <tr class="table-tr" id="task_<?= $value['id_tasks'] ?>">
                     <td class="table-td">
-                        <?= htmlspecialchars($value['title']) ?>
+                        <span class="title-text"><?= htmlspecialchars(ucfirst($value['title'])) ?></span>
                     </td>
+
                     <td class="table-td table-td-width">
-                        <a href="/phpTodolist/view/tasks/displayTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="link btn-edit" value="">EDIT</a>
+                        <a href="/phpTodolist/view/tasks/displayTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="link" value="">EDIT</a>
                         <!--<button class="btn btn-edit" onclick="popup_open(<?= $value['id_tasks'] ?>, '<?= htmlspecialchars($value['title']) ?>')">EDIT</button>-->
                     </td>
                     <td class="table-td table-td-width">
@@ -104,6 +110,8 @@ $arr = $stmt->fetchAll();
     ?>
 
     <script src="../../javascript/popup.js"></script>
+    <script src="../../javascript/addNote.js"></script>
+
     <!-- <script src="../../javascript/fetch_api/update.js"></script> -->
 </body>
 

@@ -3,24 +3,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    & ul {
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        justify-content: center;
+
+        &li {
+            padding: 0 20px;
+        }
+    }
+
 }
 
 nav {
     border-bottom: var(--border);
     width: 100%;
-}
 
-ul {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-    justify-content: center;
-
-}
-
-
-li {
-    padding: 0 20px;
 }
 
 .li-title {
@@ -38,15 +38,4 @@ a,
 li:nth-last-child(-n+2) {
     text-decoration: none;
     color: var(--font-color);
-}
-
-li:nth-last-child(-n+2):hover a {
-    color: white;
-    background-color: var(--header);
-}
-
-.btn-account,
-.btn-logout {
-    padding: 1em;
-    border-radius: var(--border-radius);
 }

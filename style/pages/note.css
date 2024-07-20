@@ -1,25 +1,47 @@
-/** ::::::::::::::::::::::::::::::::::::::::::: MAIN ::::::::::::::::::::::::::::::::::::::::::: */
-.add-note-form>input {
-    margin-right: 1em;
-    padding: 1em;
-    height: 2em;
-    border-color: rgb(182, 179, 179);
-    border-radius: var(--border-radius);
-    background-color: #eae8e8;
-}
-
-.add-note-form {
+.form-group {
     display: flex;
-    margin: 1em 1em;
+    align-items: center;
+    margin-bottom: 10px;
+
 }
 
-.title-input {
-    width: 20em;
+.form-group label {
+    width: 120px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.form-group input,
+.form-group textarea {
+    flex-grow: 1;
+    border: none;
+}
+
+.form-group input {
+    padding: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em;
+    border-bottom: var(--border);
 }
 
 .description-input {
-    width: 100em;
+    overflow: hidden;
+    min-height: 2em;
+    resize: none;
 }
+
+.todo-content {
+    margin: 1em 1em;
+}
+
 
 .table {
     width: 100%;
@@ -32,6 +54,10 @@
     padding: 1em 2em;
 }
 
+.title-text {
+    font-size: 1.4em;
+
+}
 
 .table-td-width {
     width: 1em;

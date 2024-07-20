@@ -19,9 +19,9 @@
                     <div class="div-logo">
                         <a href="view/tasks/note.php" class="logo"><img src="media/logo.png" alt="logo correspondant à une calligraphie du prénom hiba en arabe"></a>
                     </div>
-                    <div class="div-link">
-                        <a href="view/authentification/connection.php" class="link">Je me connecte</a>
-                        <a href="view/authentification/createCompte.php" class="link">Je n'ai pas de compte</a>
+                    <div class="div-btn">
+                        <a href="view/authentification/connection.php" class="btn">Je me connecte</a>
+                        <a href="view/authentification/createCompte.php" class="btn">Je n'ai pas de compte</a>
                     </div>
                 </div>
             </section>
