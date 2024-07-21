@@ -17,8 +17,14 @@
 
                 <form action="/phpTodolist/view/traitementForm/traitementCreateCompte.php" method="POST" class="createCompteForm">
                     <div class="div-input">
-                        <label for="login" class="label-container"><img src="../../media/user-icon.svg" alt="icon d'un personnage"></label>
-                        <input type="text" id="login" name="login" placeholder="nom d'utilisateur" class="input-container">
+                        <label for="username" class="label-container"><img src="../../media/user-icon.svg" alt="icon d'un personnage"></label>
+                        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" class="input-container">
+                    </div>
+                    <br><br>
+
+                    <div class="div-input">
+                        <label for="email" class="label-container"><img src="../../media/user-icon.svg" alt="icon d'un personnage"></label>
+                        <input type="email" id="email" name="email" placeholder="nom@prenom.com" class="input-container">
                     </div>
                     <br><br>
 
@@ -39,7 +45,6 @@
     </main>
 
     <script src="../../javascript/alert.js"></script>
-    <script src="../../javascript/fetch_api/createCompte.js"></script>
 
 </body>
 

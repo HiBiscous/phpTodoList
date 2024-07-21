@@ -1,38 +1,31 @@
 <?php
 require_once '../../model/db_connect.php';
 
-$response = [
-    'message' => '',
-    'success' => false
-];
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $login = $_POST['login'] ?? '';
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
     $passwd = $_POST['passwd'] ?? '';
 
-    if (($login) && ($passwd)) {
-        $rqt = 'SELECT login FROM users WHERE login = :login';
+    if (($username) && ($email) && ($passwd)) {
+        $rqt = 'SELECT username FROM users WHERE username = :username';
         $stmt = $pdo->prepare($rqt);
         $stmt->execute(
-            array(':login' => $login)
+            array(':username' => $username)
         );
 
 
         if ($stmt->fetch()) {
-            $response['message'] = 'Désolé ce login est déjà utilisé';
         } else {
-            $rqt = 'INSERT INTO users VALUES(DEFAULT, :login, :passwd)';
+            $rqt = 'INSERT INTO users VALUES(DEFAULT, :username, :email, :passwd)';
             $stmt = $pdo->prepare($rqt);
             $stmt->execute(
                 array(
-                    'login' => $login,
+                    'username' => $username,
+                    'email' => $email,
                     'passwd' => password_hash($passwd, PASSWORD_DEFAULT)
                 )
             );
-            $response['message'] = 'Bravo vous avez cree votre compte';
-            $response['success'] = true;
-            header('Content-Type: application/json');
-            echo json_encode($response);
         }
+        header('Location: /phptodolist/view/authentification/connection.php');
     }
 }
