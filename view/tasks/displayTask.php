@@ -24,26 +24,26 @@ $arr = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/main.css">
-    <title>ToDo List | note</title>
+    <?php
+    foreach ($arr as $value) { ?>
+        <title>ToDo List | <?= ucfirst($value['title']) ?></title>
+    <?php } ?>
 </head>
 
 <body>
     <?php
     require_once '../templates/header.php';
     ?>
-    <div class="table">
+    <div class="">
         <?php
 
         if ($stmt) {
             foreach ($arr as $value) { ?>
-                <h3 class="title title-text todo-content"><?= ucfirst($value['title']) ?></h3>
-                <ul id="task_<?= $value['id_tasks'] ?>">
-                    <?php
-                    $description = explode(' ', preg_replace('/\s+/', ' ', $value['description']));
-                    foreach ($description as $i) {
-                        echo '<li>' . ucfirst($i) . '</li>';
-                    }
-                    ?>
+                <h3 class="title title-text todo-content">Titre : <?= ucfirst($value['title']) ?></h3>
+                <ul>
+                    <li>
+                        <label for="description"><?= nl2br($value['description']) ?></label>
+                    </li>
                 </ul>
 
         <?php
@@ -52,7 +52,9 @@ $arr = $stmt->fetchAll();
         ?>
     </div>
     <br>
-    <a href="/phpTodolist/view/tasks/updateTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="btn btn-edit">Modifier</a>
+    <div class="btn-update">
+        <a href="/phpTodolist/view/tasks/updateTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="btn btn-update">Modifier</a>
+    </div>
 </body>
 
 </html>

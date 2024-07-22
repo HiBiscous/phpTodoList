@@ -1,6 +1,13 @@
 <?php
 session_start();
 require_once '../../model/db_connect.php';
+$success = '';
+if (isset($_SESSION['success'])) {
+    $success =  $_SESSION['success'];
+
+    //delete this session after refreshing the page
+    unset($_SESSION['success']);
+}
 
 if (isset($_POST['username']) && isset($_POST['passwd'])) {
     $username = $_POST['username'];
@@ -13,11 +20,10 @@ if (isset($_POST['username']) && isset($_POST['passwd'])) {
 
     if ($arr) {
         $_SESSION['id_users'] = $arr['id_users'];
-        // $_SESSION['username'] = $arr['username'];
         header('Location: /phptodolist/view/tasks/note.php');
         exit();
     } else {
-        echo 'un probleme est survenue';
+        echo 'un probleme est survenue, veuillez recommencer';
     }
 }
 ?>
@@ -33,7 +39,23 @@ if (isset($_POST['username']) && isset($_POST['passwd'])) {
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li class="li-logo">
+                    <a href="../tasks/note.php" class="logo"><img src="../../media/logo.png" alt="logo correspondant à une calligraphie du prénom hiba en arabe"></a>
+                </li>
+                <li class="li-title">
+                    <h1>Ma ToDo List</h1>
+                </li>
+
+                <li><a href="/phptodolist/index.php" class="link-account">Retour</a></li>
+                <li><a href="createCompte.php" class="link-account">Créer mon compte</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
+        <?= $success ?>
         <section class="section-form">
             <div class="glass">
                 <h1 class="content-h1">Connexion</h1>

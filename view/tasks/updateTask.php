@@ -1,13 +1,20 @@
 <?php
 session_start();
+if (!isset($_SESSION['id_users'])) {
+    header('Location: /phptodolist/view/authentification/connection.php');
+    exit();
+}
 require_once '../../model/db_connect.php';
+$userId = $_SESSION['id_users'];
+$id_tasks = $_GET['id_tasks'];
 
 $rqt = 'SELECT title, description, id_tasks FROM tasks WHERE id_tasks = :id_tasks ';
-$id_tasks = $_GET['id_tasks'];
+
 $stmt = $pdo->prepare($rqt);
 $stmt->bindParam(':id_tasks', $id_tasks);
 $stmt->execute();
 $arr = $stmt->fetchAll();
+
 
 ?>
 <!DOCTYPE html>
@@ -26,10 +33,9 @@ $arr = $stmt->fetchAll();
     require_once '../templates/header.php';
     ?>
     <div class="table">
-        <form action="/phptodolist/view/traitementForm/updateTask.php" method="POST">
+        <form action="../traitementForm/updateTask.php" method="POST">
             <?php if ($stmt) {
-                foreach ($arr as $value) {
-                    var_dump($value['id_tasks']) ?>
+                foreach ($arr as $value) { ?>
                     <input type="hidden" name="id_tasks" value="<?= $value['id_tasks'] ?>">
 
                     <label for="title">Titre :</label>
@@ -38,8 +44,7 @@ $arr = $stmt->fetchAll();
                     <label for="description">Description :</label>
                     <textarea name="description" rows="10" cols="30"><?= ucfirst($value['description']) ?></textarea><br>
 
-                    <button type="submit" class="btn btn-submit">Enregistrer les modifications</button>
-
+                    <button type="submit" class="btn btn-update">Enregistrer les modifications</button>
             <?php
                 }
             }

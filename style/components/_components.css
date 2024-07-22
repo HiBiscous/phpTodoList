@@ -19,6 +19,12 @@
     transition: background-color 0.3s ease;
 }
 
+.btn-update {
+    text-align: center;
+    margin-top: 2em;
+    width: 100%;
+}
+
 .link-account,
 .link-logout,
 .link {
@@ -44,14 +50,14 @@
     background-color: #021659;
 }
 
-.input-container {
+/* .input-container {
     border: none;
     border-radius: var(--border-radius);
     background-color: var(--white);
     padding: 1em;
     margin-left: auto;
     background-color: white;
-}
+} */
 
 .section-form {
     width: 80vh;
@@ -75,11 +81,17 @@
     align-items: center;
 }
 
-/* .btn-submit {
-    background-color: var(--header);
-    text-align: center;
+.error {
+    color: red;
 }
 
+/* .btn-submit {
+    width: 100%;
+    background-color: var(--header);
+    text-align: center;
+} */
+
+/* 
 
 .btn-close {
     background-color: var(--red);

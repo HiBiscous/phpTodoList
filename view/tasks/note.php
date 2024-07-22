@@ -1,9 +1,9 @@
 <?php
 //session start, so the global variable $_SESSION is enable
 session_start();
-
+var_dump($_SESSION);
 //if the user is not connected, this header will redirect him to the connection page
-if (!isset($_SESSION['id_users'])) {
+if (!$_SESSION['id_users']) {
     header('Location: /phptodolist/view/authentification/connection.php');
     exit();
 }
@@ -89,7 +89,6 @@ $arr = $stmt->fetchAll();
 
                     <td class="table-td table-td-width">
                         <a href="/phpTodolist/view/tasks/displayTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="link btn-edit" value="">EDIT</a>
-                        <!--<button class="btn btn-edit" onclick="popup_open(<?= $value['id_tasks'] ?>, '<?= htmlspecialchars($value['title']) ?>')">EDIT</button>-->
                     </td>
                     <td class="table-td table-td-width">
                         <form action="/phpTodolist/view/traitementForm/deleteTask.php" method="POST">

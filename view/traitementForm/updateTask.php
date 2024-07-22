@@ -6,8 +6,7 @@ if (!isset($_SESSION['id_users'])) {
 }
 require_once '../../model/db_connect.php';
 $userId = $_SESSION['id_users'];
-
-
+$id_tasks = $_GET['id_tasks'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['description']) && isset($_POST['id_tasks'])) {
@@ -20,10 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam('description', $description);
         $stmt->bindParam('title', $title);
         $stmt->bindParam('id_tasks', $id_tasks);
-        $stmt->bindParam('userId', $userId);
+        $stmt->bindParam(':userId', $userId);
 
         if ($stmt->execute()) {
-            header('Location: /phptodolist/view/tasks/note.php');
+            var_dump($id_tasks);
+            header('Location: /phptodolist/view/tasks/displayTask.php?id_tasks=' . $id_tasks);
             exit();
         }
     }

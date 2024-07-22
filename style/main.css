@@ -3,6 +3,7 @@
 /** import des fichiers */
 @import url("utils/_variables.css");
 @import url("pages/index.css");
+@import url("pages/displayTask.css");
 @import url("pages/note.css");
 @import url("components/_components.css");
 @import url("pages/connection.css");
