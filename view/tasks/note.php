@@ -1,7 +1,6 @@
 <?php
 //session start, so the global variable $_SESSION is enable
 session_start();
-var_dump($_SESSION);
 //if the user is not connected, this header will redirect him to the connection page
 if (!$_SESSION['id_users']) {
     header('Location: /phptodolist/view/authentification/connection.php');
@@ -42,11 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$rqt = 'SELECT title, id_tasks FROM tasks WHERE userId = :userId ';
+$rqt = 'SELECT title, id_tasks FROM tasks WHERE userId = :userId  LIMIT 5';
 
 $stmt = $pdo->prepare($rqt);
 $stmt->bindParam(':userId', $userId);
 $stmt->execute();
+$nb_row = $stmt->rowCount();
+var_dump($nb_row);
 $arr = $stmt->fetchAll();
 
 
@@ -58,7 +59,7 @@ $arr = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/main.css">
-    <title>ToDo List</title>
+    <title>ToDo List | Mes notes</title>
 </head>
 
 <body>
@@ -67,21 +68,25 @@ $arr = $stmt->fetchAll();
     <form action="#" method="POST" class="add-note-form hidden" id="taskForm">
         <div class="form-group">
             <label for="title">Titre :</label>
-            <input type="text" id="title" class="title-input" name="title" placeholder="Titre de la tâche" required>
+            <input type="text" id="title" class="title-item" name="title" placeholder="Titre de la tâche" required>
         </div>
         <div class="form-group">
             <label for="description">Description :</label>
-            <textarea type="text" id="description" class="description-input" name="description" placeholder="Description de la tâche" required></textarea>
+            <textarea type="text" id="description" class="description-item" name="description" placeholder="Description de la tâche"></textarea>
         </div>
         <button type="submit" class="btn btn-submit">Ajouter</button>
     </form>
-    <h3 class="title todo-content">Mes Notes</h3>
+    <h3 class="title todo-content">Liste de mes notes <?php if ($nb_row == 0) {
+                                                            echo '<span> : Votre liste est vide 😢</span>';
+                                                        } ?></h3>
 
     <table class="table">
         <?php
-
         if ($stmt) {
-            foreach ($arr as $value) { ?>
+            foreach ($arr as $value) {
+
+        ?>
+
                 <tr class="table-tr" id="task_<?= $value['id_tasks'] ?>">
                     <td class="table-td">
                         <span class="title-text"><?= htmlspecialchars(ucfirst($value['title'])) ?></span>
@@ -101,12 +106,9 @@ $arr = $stmt->fetchAll();
         }
         ?>
     </table>
-
-    <!-- POPUP EDIT TASKS-->
-    <?php
-    require_once 'popup.php';
-    ?>
-
+    <!--<form action="seeMore.php">
+        <button>VOIR PLUS</button>
+    </form>-->
     <script src="../../javascript/popup.js"></script>
     <script src="../../javascript/addNote.js"></script>
 </body>

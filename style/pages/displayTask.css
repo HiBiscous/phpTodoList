@@ -1,0 +1,36 @@
+/* .main-flex {
+    margin-top: 1em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.div-showNote {
+    padding: 1em;
+    border: var(--border);
+    width: 100%;
+}
+
+
+.btn-update {
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+.div-showNote-item {
+    margin-bottom: 1rem;
+}
+
+.div-showNote-title,
+.div-showNote-description {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+.btn-update {
+    display: inline-block;
+    padding: 10px 20px;
+    max-width: 20rem;
+} */

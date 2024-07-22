@@ -1,0 +1,38 @@
+.form-group {
+    display: flex;
+    justify-content: top;
+    margin-bottom: 1em;
+    padding: 0.5em;
+
+}
+
+.form-group label {
+    width: 6rem;
+    margin-right: 1em;
+    text-align: right;
+}
+
+.title-item,
+.description-item {
+    padding: 0.5em;
+    flex-grow: 1;
+    border: none;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em;
+    border-bottom: var(--border);
+}
+
+.description-item {
+    overflow: hidden;
+
+    resize: none;
+}
