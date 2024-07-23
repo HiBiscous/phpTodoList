@@ -40,7 +40,24 @@ function setTailleHeight() {
 document.addEventListener('DOMContentLoaded', function () {
     //access to the form via his id
     var form = document.forms['taskForm'],
-        arr = form.getElementsByClassName("description-input");
+        arr = form.getElementsByClassName("description-item");
+
+    // loop all textarea element in the array
+    for (let textarea of arr) {
+
+        //callback the function setTailleHeight each time the user enters text in the textarea.
+        textarea.addEventListener('input', setTailleHeight);
+
+        //adjust the height of the textarea
+        setTailleHeight.call(textarea, true);
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    //access to the form via his id
+    var form = document.forms['taskFormUpdate'],
+        arr = form.getElementsByClassName("description-item");
 
     // loop all textarea element in the array
     for (let textarea of arr) {

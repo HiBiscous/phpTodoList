@@ -1,0 +1,26 @@
+.dashboard-container {
+    margin: 2em;
+
+    &>h2 {
+        margin-bottom: 0.5em;
+    }
+
+    &>p {
+        margin-bottom: 2em;
+    }
+
+    &>table {
+        font-size: larger;
+
+        &>tr,
+        td {
+            padding-bottom: 1em;
+            width: 5em;
+        }
+    }
+}
+
+.btn-update-user {
+    border: var(--border);
+    width: 100%;
+}

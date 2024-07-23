@@ -10,7 +10,7 @@
             <li>
                 <button class="btn btn-add">Ajouter</button>
             </li>
-            <li><a href="../users/index.php" class="link-account">Mon compte</a></li>
+            <li><a href="../users/profil.php" class="link-account">Mon compte</a></li>
             <li><a href="../traitementForm/logout.php" name="logout" class="link-logout">Deconnexion</a></li>
         </ul>
     </nav>

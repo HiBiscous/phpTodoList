@@ -34,25 +34,27 @@ $arr = $stmt->fetchAll();
     <div class="table">
         <form action="../traitementForm/updateUser.php" method="POST">
             <?php if ($stmt) {
-                foreach ($arr as $value) {
-            ?>
-                    <input type="hidden" name="id_users" value="<?= $_SESSION['id_users'] ?>">
-                    <label for="username">Pseudo :</label>
-                    <input type="text" name="username" value="<?= ucfirst($value['username']) ?>"><br>
+                foreach ($arr as $value) { ?>
+                    <div class="form-group">
+                        <input type="hidden" name="id_users" value="<?= $_SESSION['id_users'] ?>">
 
-                    <label for="email">Email :</label>
-                    <input type="email" name="email" value="<?= ucfirst($value['email']) ?>"><br>
-
-                    <button type="submit" class="btn btn-submit">Enregistrer les modifications</button>
+                        <h3 for="username">Pseudo :</h3>
+                        <input type="text" class="title-item" name="username" value="<?= ucfirst($value['username']) ?>"><br>
+                    </div>
+                    <div class="form-group description-group">
+                        <h3 for="email">Email :</h3>
+                        <input type="email" class="description-item" name="email" value="<?= ucfirst($value['email']) ?>"><br>
+                    </div>
             <?php
                 }
             }
             ?>
+            <button type="submit" class="btn btn-submit">Enregistrer les modifications</button>
         </form>
     </div>
     <form action="../traitementForm/deleteUser.php" method="POST">
         <input type="hidden" name="id_users" value="<?= $_SESSION['id_users'] ?>">
-        <button type="submit" name="delete" class="btn">Supprimer mon compte</button>
+        <button type="submit" name="delete" class="btn btn-delete">Supprimer mon compte</button>
     </form>
 </body>
 

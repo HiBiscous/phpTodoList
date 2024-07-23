@@ -37,19 +37,21 @@ if (isset($userId)) {
 
         <table>
             <tr>
-                <td>Pseudo :</td>
+                <td>
+                    <h3>Pseudo :</h3>
+                </td>
                 <td><?= $arr['username'] ?></td>
             </tr>
             <tr>
-                <td>Email :</td>
+                <td>
+                    <h3>Email :</h3>
+                </td>
                 <td><?= $arr['email'] ?></td>
-            </tr>
-            <tr>
-                <td><a href="updateUser.php">Modifier mon profil</a></td>
             </tr>
 
         </table>
     </div>
+    <a href="updateUser.php" class="btn btn-update-user">Modifier mon profil</a>
 </body>
 
 </html>

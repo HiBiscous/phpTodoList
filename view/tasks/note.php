@@ -47,7 +47,7 @@ $stmt = $pdo->prepare($rqt);
 $stmt->bindParam(':userId', $userId);
 $stmt->execute();
 $nb_row = $stmt->rowCount();
-var_dump($nb_row);
+
 $arr = $stmt->fetchAll();
 
 
@@ -67,11 +67,11 @@ $arr = $stmt->fetchAll();
 
     <form action="#" method="POST" class="add-note-form hidden" id="taskForm">
         <div class="form-group">
-            <label for="title">Titre :</label>
+            <h3 for="title">Titre :</h3>
             <input type="text" id="title" class="title-item" name="title" placeholder="Titre de la tâche" required>
         </div>
-        <div class="form-group">
-            <label for="description">Description :</label>
+        <div class="form-group description-group">
+            <h3 for="description">Description :</h3>
             <textarea type="text" id="description" class="description-item" name="description" placeholder="Description de la tâche"></textarea>
         </div>
         <button type="submit" class="btn btn-submit">Ajouter</button>
@@ -89,7 +89,7 @@ $arr = $stmt->fetchAll();
 
                 <tr class="table-tr" id="task_<?= $value['id_tasks'] ?>">
                     <td class="table-td">
-                        <span class="title-text"><?= htmlspecialchars(ucfirst($value['title'])) ?></span>
+                        <h2><?= htmlspecialchars(ucfirst($value['title'])) ?></h2>
                     </td>
 
                     <td class="table-td table-td-width">
@@ -106,10 +106,6 @@ $arr = $stmt->fetchAll();
         }
         ?>
     </table>
-    <!--<form action="seeMore.php">
-        <button>VOIR PLUS</button>
-    </form>-->
-    <script src="../../javascript/popup.js"></script>
     <script src="../../javascript/addNote.js"></script>
 </body>
 

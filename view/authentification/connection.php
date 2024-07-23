@@ -9,21 +9,27 @@ if (isset($_SESSION['success'])) {
     unset($_SESSION['success']);
 }
 
-if (isset($_POST['username']) && isset($_POST['passwd'])) {
-    $username = $_POST['username'];
-    $passwd = $_POST['passwd'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['username']) && isset($_POST['passwd'])) {
+        $_POST = filter_input_array(INPUT_POST, [
+            'username' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'passwd' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
+        ]);
+        $username = $_POST['username'];
+        $passwd = $_POST['passwd'];
 
-    $rqt = "SELECT * FROM users WHERE username = :username";
-    $stmt = $pdo->prepare($rqt);
-    $stmt->execute([':username' => $username]);
-    $arr = $stmt->fetch();
+        $rqt = "SELECT * FROM users WHERE username = :username";
+        $stmt = $pdo->prepare($rqt);
+        $stmt->execute([':username' => $username]);
+        $arr = $stmt->fetch();
 
-    if ($arr) {
-        $_SESSION['id_users'] = $arr['id_users'];
-        header('Location: /phptodolist/view/tasks/note.php');
-        exit();
-    } else {
-        echo 'un probleme est survenue, veuillez recommencer';
+        if ($arr) {
+            $_SESSION['id_users'] = $arr['id_users'];
+            header('Location: /phptodolist/view/tasks/note.php');
+            exit();
+        } else {
+            echo 'un probleme est survenue, veuillez recommencer';
+        }
     }
 }
 ?>

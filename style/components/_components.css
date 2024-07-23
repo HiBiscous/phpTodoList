@@ -1,20 +1,3 @@
-.btn {
-    padding: 1em 2em;
-    margin: 0;
-    border: none;
-    color: white;
-    background-color: var(--header);
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-update {
-    text-align: center;
-    margin-top: 2em;
-    width: 100%;
-}
-
 .link-account,
 .link-logout,
 .link {
@@ -31,15 +14,9 @@
     border: var(--border);
 }
 
-
 .link {
     padding: 1em 2em;
 }
-
-.btn:hover {
-    background-color: #021659;
-}
-
 
 .section-form {
     width: 80vh;
@@ -49,18 +26,8 @@
     padding: 1em;
 }
 
-.content-h1 {
-    text-align: center;
-    color: var(--font-color);
-}
-
 .label-container {
     margin-right: 1em;
-}
-
-.div-input {
-    display: flex;
-    align-items: center;
 }
 
 .error {

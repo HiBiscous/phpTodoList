@@ -1,16 +1,17 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 /** import des fichiers */
+@import url("base/_normalize.css");
 @import url("utils/_variables.css");
+
+
+@import url("components/_components.css");
+@import url("components/_editTask.css");
+@import url("components/_button.css");
+
 @import url("pages/index.css");
 @import url("pages/note.css");
-@import url("pages/addNote.css");
-@import url("pages/displayTask.css");
-@import url("components/_components.css");
-@import url("pages/connection.css");
-@import url("pages/createCompte.css");
-@import url("pages/popup.css");
+@import url("pages/authentification.css");
+@import url("pages/profil.css");
 
 @import url("layout/header.css");
-
-@import url("base/_normalize.css");

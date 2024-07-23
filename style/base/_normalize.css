@@ -1,14 +1,12 @@
 * {
     font-family: "Inter", sans-serif;
+    color: var(--font-color);
     font-weight: normal;
     margin: 0;
     padding: 0;
 }
 
 body {
-    /* background-image: url(../../media/bg-image.jpg); */
-    background-repeat: no-repeat;
-    color: var(--font-color);
     padding: 2em;
 }
 
@@ -23,4 +21,11 @@ button {
 
 li {
     list-style-type: none;
+}
+
+input,
+textarea {
+    padding: 1rem 1rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
 }

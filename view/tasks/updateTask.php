@@ -32,25 +32,29 @@ $arr = $stmt->fetchAll();
     <?php
     require_once '../templates/header.php';
     ?>
-    <div class="table">
-        <form action="../traitementForm/updateTask.php" method="POST">
-            <?php if ($stmt) {
-                foreach ($arr as $value) { ?>
+
+    <form action="../traitementForm/updateTask.php" id="taskFormUpdate" class="show" method="POST">
+
+        <?php if ($stmt) {
+            foreach ($arr as $value) { ?>
+                <div class="form-group">
                     <input type="hidden" name="id_tasks" value="<?= $value['id_tasks'] ?>">
 
-                    <label for="title">Titre :</label>
-                    <input type="text" name="title" value="<?= ucfirst($value['title']) ?>"><br>
-
-                    <label for="description">Description :</label>
-                    <textarea name="description" rows="10" cols="30"><?= ucfirst($value['description']) ?></textarea><br>
-
-                    <button type="submit" class="btn btn-update">Enregistrer les modifications</button>
-            <?php
-                }
+                    <h3 for="title">Titre :</h3>
+                    <input type="text" name="title" class="title-item" value="<?= ucfirst($value['title']) ?>"><br>
+                </div>
+                <div class="form-group description-group">
+                    <h3 for="description">Description :</h3>
+                    <textarea name="description" class="description-item"><?= ucfirst($value['description']) ?></textarea><br>
+                </div>
+        <?php
             }
-            ?>
-        </form>
-    </div>
+        }
+        ?>
+        <button type="submit" class="btn btn-update btn-update-task ">Enregistrer les modifications</button>
+    </form>
+
+    <script src="../../javascript/addNote.js"></script>
 
 </body>
 
