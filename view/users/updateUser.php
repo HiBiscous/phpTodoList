@@ -52,10 +52,13 @@ $arr = $stmt->fetchAll();
             <button type="submit" class="btn btn-submit">Enregistrer les modifications</button>
         </form>
     </div>
-    <form action="../traitementForm/deleteUser.php" method="POST">
+    <form action="../traitementForm/deleteUser.php" method="POST" onsubmit="return confirm('Delete This account?')">
         <input type="hidden" name="id_users" value="<?= $_SESSION['id_users'] ?>">
         <button type="submit" name="delete" class="btn btn-delete">Supprimer mon compte</button>
     </form>
+
+
+    <script src="/phptodolist/javascript/confirmMessage.js"></script>
 </body>
 
 </html>

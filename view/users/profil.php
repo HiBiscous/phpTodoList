@@ -9,7 +9,7 @@ require_once '../../model/db_connect.php';
 $userId = $_SESSION['id_users'];
 
 if (isset($userId)) {
-    $rqt = "SELECT username, email FROM users WHERE id_users = :id_users";
+    $rqt = "SELECT id_users, username, email FROM users WHERE id_users = :id_users";
     $stmt = $pdo->prepare($rqt);
     $stmt->execute([
         ':id_users' => $userId,
@@ -20,7 +20,7 @@ if (isset($userId)) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">

@@ -9,6 +9,7 @@ if (isset($_SESSION['success'])) {
     unset($_SESSION['success']);
 }
 
+
 $message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = filter_input_array(INPUT_POST, [
@@ -24,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare($rqt);
         $stmt->execute([':username' => $username]);
         $arr = $stmt->fetch();
-        var_dump($arr);
 
         if (password_verify($passwd, $arr['passwd'])) {
             $_SESSION['id_users'] = $arr['id_users'];

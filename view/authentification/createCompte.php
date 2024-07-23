@@ -67,9 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
                     ':passwd' => password_hash($passwd, PASSWORD_DEFAULT)
                 )
             );
-
             //create session variable to display the message on the redirect page
-            $_SESSION['success'] = '<div class="alert">Votre compte a bien été crée. Veuillez vous connecter</div>';
+            $_SESSION['success'] = '<div class="alert">  Votre compte a bien été crée. Veuillez vous connecter</div>';
             header('Location: connection.php');
             exit();
         }
