@@ -14,10 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_users'])) {
     $stmt = $pdo->prepare($rqt);
     $stmt->bindParam(':id_users', $userId);
     $stmt->execute();
+
     session_destroy();
+    unset($_SESSION['id_users']);
     header('Location: /phptodolist/view/authentification/createCompte.php');
     exit;
-
-    // header("Location: ../tasks/note.php");
-    // exit();
 }

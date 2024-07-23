@@ -7,7 +7,7 @@ $errors = [
     'exist' => '',
     'username' => '',
     'passwd' => '',
-    'email' => ''
+    'email' => '',
 ];
 
 //error message
@@ -39,8 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
         $errors['passwd'] = '<p>Le mot est obligatoire</p>';
     }
 
+    $regex = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$/';
+    $preg = preg_match($regex, $passwd);
+
     //execute INSERT INTO request
-    if (($username) && ($email) && (mb_strlen($passwd) >= 10)) {
+    if (($username) && ($email) && ($preg)) {
 
         //check if the users doesn't exists in database (avec SELECT)
         $rqt = 'SELECT username, email FROM users WHERE username = :username OR email = :email';
@@ -65,14 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
                 )
             );
 
-            //$message = '<span>Votre compte a bien été crée</span>';
             //create session variable to display the message on the redirect page
             $_SESSION['success'] = '<div class="alert">Votre compte a bien été crée. Veuillez vous connecter</div>';
+            header('Location: connection.php');
+            exit();
         }
-        header('Location: connection.php');
-        exit();
     } else {
-        $errors['passwd'] = "<span>Votre mot de passe doit contenir au moins 10 caractères</span>";
+        $errors['passwd'] = "<span>Votre mot de passe doit contenir au moins 10 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial</span>";
     }
 }
 ?>
@@ -131,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
                         <input type="password" id="passwd" name="passwd" placeholder="mot de passe" class="input-container">
                     </div>
                     <?= $errors['passwd'] ?>
+
                     <br><br>
 
                     <div class=" div-submit">

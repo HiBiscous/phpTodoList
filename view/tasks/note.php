@@ -86,7 +86,6 @@ $arr = $stmt->fetchAll();
             foreach ($arr as $value) {
 
         ?>
-
                 <tr class="table-tr" id="task_<?= $value['id_tasks'] ?>">
                     <td class="table-td">
                         <h2><?= htmlspecialchars(ucfirst($value['title'])) ?></h2>

@@ -9,27 +9,32 @@ if (isset($_SESSION['success'])) {
     unset($_SESSION['success']);
 }
 
+$message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['username']) && isset($_POST['passwd'])) {
-        $_POST = filter_input_array(INPUT_POST, [
-            'username' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'passwd' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
-        ]);
-        $username = $_POST['username'];
-        $passwd = $_POST['passwd'];
+    $_POST = filter_input_array(INPUT_POST, [
+        'username' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'passwd' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
+    ]);
+    $username = $_POST['username'];
+    $passwd = $_POST['passwd'];
 
-        $rqt = "SELECT * FROM users WHERE username = :username";
+    if (isset($_POST['username']) && isset($_POST['passwd']) && (mb_strlen($passwd) >= 10)) {
+
+        $rqt = "SELECT id_users, username, passwd FROM users WHERE username = :username";
         $stmt = $pdo->prepare($rqt);
         $stmt->execute([':username' => $username]);
         $arr = $stmt->fetch();
+        var_dump($arr);
 
-        if ($arr) {
+        if (password_verify($passwd, $arr['passwd'])) {
             $_SESSION['id_users'] = $arr['id_users'];
             header('Location: /phptodolist/view/tasks/note.php');
             exit();
         } else {
-            echo 'un probleme est survenue, veuillez recommencer';
+            $message = '<div class="alert">Le mot de passe est erroné</div>';
         }
+    } else {
+        $message = "<span class='alert'>Veuillez remplir tous les champs avec un mot de passe valide</span>";
     }
 }
 ?>
@@ -64,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?= $success ?>
         <section class="section-form">
             <div class="glass">
+                <?= $message ?>
                 <h1 class="content-h1">Connexion</h1>
                 <br>
                 <form action="#" method="POST" class="connectForm form">
@@ -93,9 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <script src="../../javascript/alert.js"></script>
-    <!--<script src="../../javascript/fetch_api/connect.js"></script> -->
-
-
 </body>
 
 </html>

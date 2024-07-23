@@ -54,8 +54,6 @@ $arr = $stmt->fetchAll();
             <a href="/phpTodolist/view/tasks/updateTask.php?id_tasks=<?= $value['id_tasks']; ?>" class="btn btn-update">Modifier</a>
 
         </div>
-
-
     </main>
 </body>
 
