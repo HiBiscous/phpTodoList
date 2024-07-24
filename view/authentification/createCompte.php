@@ -39,13 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
         $errors['passwd'] = '<p>Le mot est obligatoire</p>';
     }
 
-    $regex = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$/';
-    $preg = preg_match($regex, $passwd);
+    $regexEmail = '/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/';
+    $pregEmail = preg_match($regexEmail, $email);
+
+    $regexPasswd = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$/';
+    $pregPasswd = preg_match($regexPasswd, $passwd);
 
     //execute INSERT INTO request
-    if (($username) && ($email) && ($preg)) {
+    if (($username) && ($email) && ($pregPasswd) && ($pregEmail)) {
 
-        //check if the users doesn't exists in database (avec SELECT)
+        //check if the users doesn't exists in database (with SELECT)
         $rqt = 'SELECT username, email FROM users WHERE username = :username OR email = :email';
         $stmt = $pdo->prepare($rqt);
         $stmt->execute(
@@ -72,8 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
             header('Location: connection.php');
             exit();
         }
-    } else {
+    } elseif (!$pregPasswd) {
         $errors['passwd'] = "<span>Votre mot de passe doit contenir au moins 10 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial</span>";
+    } elseif (!$pregEmail) {
+        $errors['email'] = "<span>Email invalide</span>";
     }
 }
 ?>
@@ -85,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitForm'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../style/main.css">
-    <title>Todo list</title>
+    <title>Todo list | Création de compte</title>
 </head>
 
 <body>
