@@ -24,5 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $arr = $stmt->fetchAll();
 
         header('Location: /phptodolist/view/users/index.php');
+        exit();
     }
 }

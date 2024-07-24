@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../style/main.css">
-    <title>Todo list</title>
+    <title>Todo list | Connection</title>
 </head>
 
 <body>

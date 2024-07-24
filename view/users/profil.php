@@ -13,45 +13,36 @@ if (isset($userId)) {
     $stmt = $pdo->prepare($rqt);
     $stmt->execute([
         ':id_users' => $userId,
-
     ]);
     $arr = $stmt->fetch();
 }
 
+//import header and doctype template and change the title variable
+$title = '| Mon Profil';
+require_once '../templates/header.php'
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/main.css">
-    <title>Tableau de bord</title>
-</head>
+<div class="dashboard-container">
+    <h2>Bienvenue sur votre tableau de bord <?= ucfirst($arr['username']) ?></h2>
+    <p>Vous pouvez maintenant accéder à toutes les fonctionnalités réservées à nos utilisateurs inscrits.</p>
 
-<body>
-    <?php require_once '../templates/header.php' ?>
-    <div class="dashboard-container">
-        <h2>Bienvenue sur votre tableau de bord <?= ucfirst($arr['username']) ?></h2>
-        <p>Vous pouvez maintenant accéder à toutes les fonctionnalités réservées à nos utilisateurs inscrits.</p>
+    <table>
+        <tr>
+            <td>
+                <h3>Pseudo :</h3>
+            </td>
+            <td><?= $arr['username'] ?></td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Email :</h3>
+            </td>
+            <td><?= $arr['email'] ?></td>
+        </tr>
 
-        <table>
-            <tr>
-                <td>
-                    <h3>Pseudo :</h3>
-                </td>
-                <td><?= $arr['username'] ?></td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>Email :</h3>
-                </td>
-                <td><?= $arr['email'] ?></td>
-            </tr>
-
-        </table>
-    </div>
-    <a href="updateUser.php" class="btn btn-update-user">Modifier mon profil</a>
+    </table>
+</div>
+<a href="updateUser.php" class="btn btn-update-user">Modifier mon profil</a>
 </body>
 
 </html>
