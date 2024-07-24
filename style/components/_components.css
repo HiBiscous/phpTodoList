@@ -18,13 +18,7 @@
     padding: 1em 2em;
 }
 
-.section-form {
-    width: 80vh;
-    margin: auto;
-    justify-content: center;
-    border-radius: var(--border-radius);
-    padding: 1em;
-}
+
 
 .label-container {
     margin-right: 1em;

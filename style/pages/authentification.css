@@ -1,39 +1,82 @@
-.section-form {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@media only screen and (max-width: 1920px) {
+
+    .section-form {
+        width: 50%;
+        justify-content: center;
+        margin: auto;
+        padding: 1em;
+        align-items: center;
+
+    }
+
+    .content-h1 {
+        font-size: 3em;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--font-color);
+    }
+
+    .btn-submit {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .div-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .alert {
+        display: flex;
+        margin: 1em auto;
+        padding: 1em 1em;
+        width: fit-content;
+        text-align: center;
+        color: var(--white);
+        background-color: var(--header);
+        border-radius: var(--border-radius);
+    }
 }
 
-.btn-submit {
-    width: 100%;
-    margin-bottom: 1em;
+@media only screen and (max-width: 1280px) {
+    .btn-submit {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .div-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
 }
 
-.div-input {
-    display: flex;
-    align-items: center;
+@media only screen and (max-width: 935px) {
+    .content-h1 {
+        font-size: 2.5em;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--font-color);
+    }
+
+    .section-form {
+        width: 100%;
+        margin: auto;
+        padding: 1em;
+    }
 }
 
-.content-h1 {
-    margin-bottom: 1rem;
-    text-align: center;
-    color: var(--font-color);
-}
-
-.input-container {
-    width: 100%;
-}
-
-.alert {
-    display: flex;
-    margin: 1em auto;
-    padding: 1em 1em;
-    width: fit-content;
-    text-align: center;
-    color: var(--white);
-    background-color: var(--header);
-    border-radius: var(--border-radius);
+@media only screen and (max-width: 581px) {
+    .content-h1 {
+        /* font-size: 1.5em; */
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--font-color);
+    }
 }

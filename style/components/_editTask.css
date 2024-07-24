@@ -18,15 +18,7 @@
     text-align: left;
 }
 
-.hidden {
-    display: none;
-}
 
-.show {
-    display: flex;
-    flex-direction: column;
-    margin: 1em 1em;
-}
 
 .description-item {
     overflow: hidden;

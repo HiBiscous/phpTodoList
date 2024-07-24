@@ -15,45 +15,38 @@
 }
 
 .div-welcome {
-    /* margin-right: 2em; */
     text-align: right;
 }
 
-
-@media only screen and (max-width: 860px) {
-    .div-link {
+@media only screen and (max-width: 1280px) {
+    .content {
         display: flex;
         flex-direction: column;
-        gap: 1em;
-    }
-}
-
-@media only screen and (max-width: 581px) {
-    .content {
-        display: block;
-        padding: 1em;
-
-    }
-
-    .div-logo {
-        display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1em;
-        /* border: var(--border); */
-
     }
 
-    .div-welcome {
-        margin-right: 0;
+    img {
         margin-bottom: 2em;
-        text-align: center;
-        align-items: center;
     }
 
-    .div-link {
+    .div-btn {
+        width: 50%;
+        gap: 2em;
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+    }
+
+}
+
+@media only screen and (max-width: 935px) {
+    .div-btn {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: 2em;
+        width: 80%;
     }
 }
+
+@media only screen and (max-width: 581px) {}
